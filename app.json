@@ -1,0 +1,43 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/my/my",
+    "pages/upload/upload",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#EEEEEE",
+    "navigationBarTitleText": "Example",
+    "navigationBarTextStyle":"black",
+    "backgroundColor":"#EEEEEE"
+    
+    
+  },
+  "tabBar": {
+    "color": "#808080",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "#D5966A",
+    "list": [
+      {
+        "selectedIconPath": "images/video.png",
+        "iconPath": "images/video.png",
+        "pagePath": "pages/index/index",
+        "text": "推荐"
+      },
+      {
+        "selectedIconPath": "images/type.png",
+        "iconPath": "images/type.png",
+        "pagePath": "pages/logs/logs",
+        "text": "分类"
+      },
+      {
+        "selectedIconPath": "images/user.png",
+        "iconPath": "images/user.png",
+        "pagePath": "pages/upload/upload",
+        "text": "我的"
+      }
+    ]
+  }
+  
+}

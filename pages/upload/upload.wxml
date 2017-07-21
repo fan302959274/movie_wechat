@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class="container">
+
+
+<view class="itemView">
+
+   
+<button bindtap="uploadImg">选择文件</button>
+<text>上传文件：
+1、文件你大小不得超过10M
+2、尽量采用mp4文件
+</text>
+</view>
+
+
+
+
+
+
+</view>

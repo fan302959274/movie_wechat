@@ -1,0 +1,10 @@
+{
+
+
+  "backgroundTextStyle": "dark",
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTitleText": "成员",
+  "navigationBarTextStyle": "#EEEEEE",
+  "enablePullDownRefresh": true
+
+}
