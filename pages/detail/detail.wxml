@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="container">
+
+
+  <!--search-->
+  <view  class="searchview">
+    <icon type="search" class="searchicon" ></icon>
+  </view>
+
+
+
+
+
+</view>

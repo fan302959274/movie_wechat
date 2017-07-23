@@ -4,24 +4,24 @@ var app = getApp()
 Page({
   uploadImg: function () {
 
-    wx.chooseImage({
+    wx.chooseVideo({
       success: function (res) {
-        
-        var tempFilePaths = res.tempFilePaths
-        wx.showToast({
-          title: tempFilePaths[0],
-          icon: 'error',
-          duration: 2000
-        })
+       
+        var tempFilePath = res.tempFilePath
         wx.uploadFile({
-          url: 'http://www.tanguoguo.com/api/video/upload', //仅为示例，非真实的接口地址
-          filePath: tempFilePaths[0],
+          url: 'https://www.lazytechfinance.com/movie/api/video/upload', //仅为示例，非真实的接口地址
+          filePath: tempFilePath,
           name: 'file',
           header: {
             'content-type': 'multipart/form-data'
           },
           method: 'POST',
           success: function (res) {
+            wx.showToast({
+              title: res.data,
+              icon: 'success',
+              duration: 2000
+            })
             var data = JSON.parse(res.data);
             if (data.code == '20000') {
               wx.showToast({

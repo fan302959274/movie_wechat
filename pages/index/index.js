@@ -29,7 +29,7 @@ Page({
       })
     })
     wx.request({
-      url: 'http://www.tanguoguo.com/api/user/save', //仅为示例，并非真实的接口地址
+      url: 'https://www.lazytechfinance.com/movie/api/video/list', //仅为示例，并非真实的接口地址
       method: 'POST',
       formData: {
         'user': 'test'
@@ -37,18 +37,38 @@ Page({
       success: function (res) {
         console.log(res.data);
         that.setData({
-          mydata: res.data.msg
+          movielist:res.data.resultList
         })
       }
     })
   },
   // 下拉刷新回调接口
   onPullDownRefresh: function () {
-    wx.showToast({
-      title: '成功',
-      icon: 'success',
-      duration: 2000
+    var that = this
+    wx.request({
+      url: 'https://www.lazytechfinance.com/movie/api/video/list', //仅为示例，并非真实的接口地址
+      method: 'POST',
+      formData: {
+        'user': 'test'
+      },
+      success: function (res) {
+        console.log(res.data);
+        that.setData({
+          movielist: res.data.resultList
+        })
+        wx.stopPullDownRefresh()
+      }
     })
-    wx.stopPullDownRefresh()
-  }
+   
+  },
+  onReachBottom: function () {
+    // Do something when page reach bottom.
+    console.log('circle 下一页');
+  },
+  //详细
+  detail: function () {
+    wx.navigateTo({
+      url: '../detail/detail'
+    })
+  },
 })

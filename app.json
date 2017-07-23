@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/my/my",
     "pages/upload/upload",
+    "pages/detail/detail",
     "pages/logs/logs"
   ],
   "window":{

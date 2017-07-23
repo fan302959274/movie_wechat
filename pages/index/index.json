@@ -2,9 +2,9 @@
 
 
   "backgroundTextStyle": "dark",
-  "navigationBarBackgroundColor": "#000",
-  "navigationBarTitleText": "成员",
-  "navigationBarTextStyle": "#EEEEEE",
+  "navigationBarBackgroundColor": "#EEEEEE",
+  "navigationBarTitleText": "推荐",
+  "navigationBarTextStyle": "black",
   "enablePullDownRefresh": true
 
 }

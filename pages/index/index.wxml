@@ -8,26 +8,36 @@
     <text class="user-motto">{{motto}}</text>
   </view>-->
 
-<text>{{mydata}}</text>
+
   <!--search-->
   <view  class="searchview">
     <icon type="search" class="searchicon" ></icon>
   </view>
-
   <!--swiper-->    
-  <!--<swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">    
+  <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">    
         <block wx:for="{{movies}}" wx:for-index="index">    
           <swiper-item>    
             <image src="{{item.url}}" class="slide-image" mode="aspectFill"/>    
           </swiper-item>    
         </block>    
-  </swiper>-->
-
+  </swiper>
   <!--video-->
-  <!--<view class="">
-    <text>标题</text>
-    <video poster="http://img04.tooopen.com/images/20130712/tooopen_17270713.jpg" objectFit="cover" class="videolist" id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
-  </view>-->
+
+<block wx:for="{{movielist}}" wx:for-index="index">  
+  <view class="videoclass" bindtap="detail">
+    <video  poster="http://img04.tooopen.com/images/20130712/tooopen_17270713.jpg" objectFit="cover" class="videolist" id="myVideo" 
+    src="{{item.videoViewPath}}" ></video>
+    <view class="line-css" >
+    <text>云和梯田</text>
+    <span class="iconfont icon-share" style="margin-left:55%;"></span>
+    <span class="iconfont icon-favorite" style="margin-left:5%;"></span>
+    <span class="iconfont icon-comments"  style="margin-left:5%;"></span>
+    </view>
+    <view class="content-css" >
+    <text>云和梯田集旅游休闲、摄影观光、民俗欣赏于一体的云和县首批4A级旅游景区。景区位于崇头镇，距县城5公里，最早开发于唐初，兴于元、明，距今有1000多年历史，总面积51平方公里。</text>
+    </view>
+  </view>
+</block>
 
 
 
