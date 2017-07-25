@@ -2,15 +2,24 @@
 <view class="container" >
 
 
-<view class="itemView">
-
-   
-<button bindtap="uploadImg">选择文件</button>
-<text>上传文件：
-1、文件你大小不得超过10M
-2、尽量采用mp4文件
-</text>
+<view style="width:100%;height:300rpx;border-top:1px solid grey;">
+<view>
+<span class="iconfont icon-add" style="font-size:100px;font-style:normal;width:200px;"></span>
 </view>
+<text>添加小视频</text>
+</view>
+
+<view style="width:100%;height:200rpx;border:1px solid grey;">
+
+<textarea  />
+</view>
+<view style="width:100%;height:100rpx;border-bottom:1px solid grey;">
+</view>
+   
+<button bindtap="uploadImg" style="width:95%;">选择文件</button>
+<button bindtap="" style="width:95%;margin-top:5%;">删除</button>
+
+
 
 
 
