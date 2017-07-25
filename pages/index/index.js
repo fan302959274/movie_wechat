@@ -22,11 +22,43 @@ Page({
     console.log('onLoad')
     var that = this
     //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
-      })
+    app.getUserInfo(function (userInfo){
+        //更新数据
+        that.setData({
+          userInfo: userInfo
+        })
+        //收集用户信息
+
+        wx.request({
+          url: 'https://www.lazytechfinance.com/movie/api/user/save', //仅为示例，并非真实的接口地址
+          method: 'POST',
+          header: {
+            'content-type': 'application/json'
+          },
+
+          data: {
+          
+            userNickName: userInfo.nickName,
+            userAvatarUrl: userInfo.avatarUrl,
+            userGender: userInfo.gender,//性别 0：未知、1：男、2：女
+            userProvince: userInfo.province,
+            userCity: userInfo.city,
+            userCountry: userInfo.country,
+            userUnionId: userInfo.watermark,
+            userOpenId: userInfo.openId
+          },
+          success: function (res) {
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'success',
+              duration: 2000
+            })
+          }
+        })
+
+     
+     
+
     })
     wx.request({
       url: 'https://www.lazytechfinance.com/movie/api/video/list', //仅为示例，并非真实的接口地址

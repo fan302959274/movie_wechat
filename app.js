@@ -21,6 +21,21 @@ App({
       })
     }
   },
+  getEncryptedData: function (cb) {
+    var that = this
+    if (this.globalData.encryptedData) {
+      typeof cb == "function" && cb(this.globalData.encryptedData)
+    } else {
+      //调用登录接口
+      wx.getUserInfo({
+        withCredentials: false,
+        success: function (res) {
+          that.globalData.encryptedData = res.encryptedData
+          typeof cb == "function" && cb(that.globalData.encryptedData)
+        }
+      })
+    }
+  },
 
   globalData: {
     userInfo: null
