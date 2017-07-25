@@ -3,5 +3,5 @@
   "navigationBarBackgroundColor": "#EEEEEE",
   "navigationBarTitleText": "拍摄或上传小视频",
   "navigationBarTextStyle": "black",
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": false
 }

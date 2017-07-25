@@ -2,27 +2,35 @@
 <view class="container" >
 
 
-<view style="width:100%;height:300rpx;border-top:1px solid grey;">
-<view>
-<span class="iconfont icon-add" style="font-size:100px;font-style:normal;width:200px;"></span>
-</view>
-<text>添加小视频</text>
+<view style="width:100%;height:400rpx;border-top:1rpx solid grey;">
+
+<view style="margin-top:{{marginTop}}">
+<span bindtap="uploadImg" class="iconfont icon-add" style="font-size:50px;font-style:normal;width:200px;color:grey;display:{{adddisplay}}"></span>
+
+<video style="height:400rpx;display:{{videodisplay}}" objectFit="cover" class="videolist" id="myVideo" src="{{src}}" ></video>
 </view>
 
-<view style="width:100%;height:200rpx;border:1px solid grey;">
 
-<textarea  />
+
+
+
+
+
+
+<text style="font-size:15px;color:grey;display:{{textdisplay}}">添加小视频</text>
 </view>
-<view style="width:100%;height:100rpx;border-bottom:1px solid grey;">
+
+
+
+<view style="width:100%;height:200rpx;border:1rpx solid grey;">
+<textarea  style="font-size:15px;" placeholder="视频简介"/>
 </view>
+
    
-<button bindtap="uploadImg" style="width:95%;">选择文件</button>
-<button bindtap="" style="width:95%;margin-top:5%;">删除</button>
 
-
-
-
-
+  
+<button bindtap="uploadVideo" id="{{tempFilePath}}" disabled="{{uploaddisabled}}" type="primary" style="width:95%;margin:5%;" >上传视频</button>
+<button bindtap="removeVideo" style="width:95%;">删除</button>
 
 
 
