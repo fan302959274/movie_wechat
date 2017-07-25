@@ -35,9 +35,7 @@ Page({
           header: {
             'content-type': 'application/json'
           },
-
           data: {
-          
             userNickName: userInfo.nickName,
             userAvatarUrl: userInfo.avatarUrl,
             userGender: userInfo.gender,//性别 0：未知、1：男、2：女
@@ -48,11 +46,7 @@ Page({
             userOpenId: userInfo.openId
           },
           success: function (res) {
-            wx.showToast({
-              title: res.data.msg,
-              icon: 'success',
-              duration: 2000
-            })
+            console.log(res.data.msg)
           }
         })
 
@@ -98,9 +92,10 @@ Page({
     console.log('circle 下一页');
   },
   //详细
-  detail: function () {
+  detail: function (event) {
+    var src = event.currentTarget.id;
     wx.navigateTo({
-      url: '../detail/detail'
+      url: '../detail/detail?src='+src
     })
   },
 })

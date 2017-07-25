@@ -23,8 +23,8 @@
   </swiper>-->
   <!--video-->
 
-<!--<block wx:for="{{movielist}}" wx:for-index="index">  
-  <view class="videoclass" bindtap="detail">
+<block wx:for="{{movielist}}" wx:for-index="index">  
+  <view class="videoclass" bindtap="detail" id="{{item.videoViewPath}}">
     <video  poster="http://img04.tooopen.com/images/20130712/tooopen_17270713.jpg" objectFit="cover" class="videolist" id="myVideo" 
     src="{{item.videoViewPath}}" ></video>
     <view class="line-css" >
@@ -37,7 +37,7 @@
     <text>云和梯田集旅游休闲、摄影观光、民俗欣赏于一体的云和县首批4A级旅游景区。景区位于崇头镇，距县城5公里，最早开发于唐初，兴于元、明，距今有1000多年历史，总面积51平方公里。</text>
     </view>
   </view>
-</block>-->
+</block>
 
 
 
