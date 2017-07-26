@@ -29,8 +29,12 @@
    
 
   
-<button bindtap="uploadVideo" id="{{tempFilePath}}" disabled="{{uploaddisabled}}" type="primary" style="width:95%;margin:5%;" >上传视频</button>
+<button bindtap="uploadVideo" id="{{tempFilePath}}" disabled="{{uploaddisabled}}" type="primary" style="width:95%;margin:5%;" ><image src="../../images/loading.gif"  style="width:25rpx;height:25rpx;display:{{loadingdisplay}}"></image> {{uploadtext}}</button>
 <button bindtap="removeVideo" style="width:95%;">删除</button>
+
+
+
+
 
 
 

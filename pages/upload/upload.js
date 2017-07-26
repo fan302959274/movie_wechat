@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 var app = getApp()
+var interval
 Page({
   data: {
     videodisplay: 'none',
@@ -8,11 +9,15 @@ Page({
     textdisplay:'',
     marginTop:'100rpx',
     uploaddisabled:'false',
-    animation: ''
+    uploadtext: '上传视频',
+    loadingdisplay:'none'
 
    
   },
 
+  
+
+  
   uploadImg: function () {
     var that = this
     wx.chooseVideo({
@@ -53,8 +58,17 @@ Page({
     })
 
   },
+  
+
+  
 
   uploadVideo: function (event) {
+    var that = this
+    that.setData({
+      uploaddisabled: 'none',
+      uploadtext: '上传中...',
+      loadingdisplay: ''
+    })
     wx.uploadFile({
       url: 'https://www.lazytechfinance.com/movie/api/video/upload', //上传视频接口
       filePath: event.currentTarget.id,
@@ -71,11 +85,17 @@ Page({
         })
         var data = JSON.parse(res.data);
         if (data.code == '20000') {
+          that.setData({
+            uploadtext: '上传视频',
+            loadingdisplay: 'none',
+            uploaddisabled: '',
+          })
           wx.showToast({
             title: '上传成功',
             icon: 'success',
             duration: 2000
           })
+          
         } else {
           wx.showToast({
             title: data.msg,
@@ -88,7 +108,9 @@ Page({
       }
     })
 
-  }
+  },
+  
+
   
 })
 
