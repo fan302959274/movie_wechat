@@ -13,6 +13,9 @@ page{height:100%}
   background-color: #EEEEEE;
 
 } 
+.videolist{
+  width: 750rpx;
+}
 /**Alibaba国际站图标库**/
 @font-face {font-family: "iconfont";
   src: url('https://www.lazytechfinance.com/movie/fonts/iconfont.eot?t=1500724205498'); /* IE9*/

@@ -6,10 +6,11 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     movies: [
-      { url: 'http://img04.tooopen.com/images/20130712/tooopen_17270713.jpg' },
-      { url: 'http://img04.tooopen.com/images/20130617/tooopen_21241404.jpg' },
-      { url: 'http://img04.tooopen.com/images/20130701/tooopen_20083555.jpg' },
-      { url: 'http://img02.tooopen.com/images/20141231/sy_78327074576.jpg' }
+      { url: 'http://foxmovie.oss-cn-beijing.aliyuncs.com/foxmovie1501075155067.jpg' },
+      { url: 'http://foxmovie.oss-cn-beijing.aliyuncs.com/foxmovie1501075110382.jpg' },
+      { url: 'http://foxmovie.oss-cn-beijing.aliyuncs.com/foxmovie1501075125632.jpg' },
+      { url: 'http://foxmovie.oss-cn-beijing.aliyuncs.com/foxmovie1501075139563.jpg' },
+      { url: 'http://foxmovie.oss-cn-beijing.aliyuncs.com/foxmovie1501075148953.jpg' },
     ]   
   },
   //事件处理函数

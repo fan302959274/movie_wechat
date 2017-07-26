@@ -29,9 +29,7 @@
     src="{{item.videoViewPath}}" ></video>
     <view class="line-css" >
     <text>云和梯田</text>
-    <span class="iconfont icon-share" style="margin-left:55%;"></span>
-    <span class="iconfont icon-favorite" style="margin-left:5%;"></span>
-    <span class="iconfont icon-comments"  style="margin-left:5%;"></span>
+    
     </view>
     <view class="content-css" >
     <text>云和梯田集旅游休闲、摄影观光、民俗欣赏于一体的云和县首批4A级旅游景区。景区位于崇头镇，距县城5公里，最早开发于唐初，兴于元、明，距今有1000多年历史，总面积51平方公里。</text>

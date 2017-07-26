@@ -1,0 +1,38 @@
+.container {
+  height: 100%;
+
+
+  align-items: center;
+ /** justify-content: space-between;**/
+  /*padding: 200rpx 0;*/
+  box-sizing: border-box;
+  overflow-x: hidden;
+  background-color: #EEEEEE;
+  
+
+} 
+
+
+.container1{
+  height:100%;
+  width:100%;
+
+  display:flex;
+  justify-content:space-between;
+
+ 
+
+ 
+}
+
+
+.item1{
+
+  height: 100rpx;
+
+ 
+
+ 
+}
+
+
