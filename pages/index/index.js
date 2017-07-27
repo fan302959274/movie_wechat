@@ -29,28 +29,40 @@ Page({
           userInfo: userInfo
         })
         //收集用户信息
+        wx.login({
+          success: function (loginRes) {
+            if (loginRes.code) {
+              //发起网络请求
+              console.log(loginRes.code);
+              wx.request({
+                url: 'https://www.lazytechfinance.com/movie/api/user/save', //仅为示例，并非真实的接口地址
+                method: 'POST',
+                header: {
+                  'content-type': 'application/json'
+                },
+                data: {
+                  userNickName: userInfo.nickName,
+                  userAvatarUrl: userInfo.avatarUrl,
+                  userGender: userInfo.gender,//性别 0：未知、1：男、2：女
+                  userProvince: userInfo.province,
+                  userCity: userInfo.city,
+                  userCountry: userInfo.country,
+                  userUnionId: userInfo.watermark,
+                  userOpenId: userInfo.openId,
+                  loginCodeRandom:loginRes.code//传到后台后获取用户唯一标识openid(登录一次生成一个，一个只能用一次)
+                },
+                success: function (res) {
+                  console.log(res.data.msg)
+                }
+              })
 
-        wx.request({
-          url: 'https://www.lazytechfinance.com/movie/api/user/save', //仅为示例，并非真实的接口地址
-          method: 'POST',
-          header: {
-            'content-type': 'application/json'
-          },
-          data: {
-            userNickName: userInfo.nickName,
-            userAvatarUrl: userInfo.avatarUrl,
-            userGender: userInfo.gender,//性别 0：未知、1：男、2：女
-            userProvince: userInfo.province,
-            userCity: userInfo.city,
-            userCountry: userInfo.country,
-            userUnionId: userInfo.watermark,
-            userOpenId: userInfo.openId
-          },
-          success: function (res) {
-            console.log(res.data.msg)
+            } else {
+              console.log('获取用户登录态失败！' + res.errMsg)
+            }
           }
-        })
+        });
 
+        
      
      
 
