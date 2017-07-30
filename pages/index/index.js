@@ -6,11 +6,11 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     movies: [
-      { url: 'http://foxmovie.oss-cn-beijing.aliyuncs.com/foxmovie1501075155067.jpg' },
-      { url: 'http://foxmovie.oss-cn-beijing.aliyuncs.com/foxmovie1501075110382.jpg' },
-      { url: 'http://foxmovie.oss-cn-beijing.aliyuncs.com/foxmovie1501075125632.jpg' },
-      { url: 'http://foxmovie.oss-cn-beijing.aliyuncs.com/foxmovie1501075139563.jpg' },
-      { url: 'http://foxmovie.oss-cn-beijing.aliyuncs.com/foxmovie1501075148953.jpg' },
+      { url: 'http://toppicture.oss-cn-beijing.aliyuncs.com/38508484_38508484_1410501439525.jpg' },
+      { url: 'http://toppicture.oss-cn-beijing.aliyuncs.com/146767860904892041.jpg' },
+      { url: 'http://toppicture.oss-cn-beijing.aliyuncs.com/1225242074829.jpg' },
+      { url: 'http://toppicture.oss-cn-beijing.aliyuncs.com/20160812152819_5549.jpg' },
+      { url: 'http://toppicture.oss-cn-beijing.aliyuncs.com/711101975fac4ef1b490585a86219472.jpg' },
     ]   
   },
   //事件处理函数

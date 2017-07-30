@@ -24,10 +24,10 @@
   <!--video-->
 
 <block wx:for="{{movielist}}" wx:for-index="index">  
-  <view class="videoclass" bindtap="detail" id="{{item.videoViewPath}}">
+  <view class="videoclass"  id="{{item.videoViewPath}}">
     <video  poster="http://img04.tooopen.com/images/20130712/tooopen_17270713.jpg" objectFit="cover" class="videolist" id="myVideo" 
     src="{{item.videoViewPath}}" ></video>
-    <view class="line-css" >
+    <view class="line-css" bindtap="detail" >
     <text>云和梯田</text>
     
     </view>
