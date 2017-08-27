@@ -3,8 +3,7 @@
 var app = getApp()
 Page({
   data: {
-    hidden: true,
-    nocancel: true
+   
 
   },
   onLoad: function (option) {
@@ -15,11 +14,7 @@ Page({
       src: option.src
     })
   },
-  cancel: function () {
-    this.setData({
-      hidden: true
-    });
-  },
+
   confirm: function () {
     this.setData({
       nocancel: !this.data.nocancel
@@ -27,15 +22,7 @@ Page({
     console.log("clicked confirm");
   }
 ,
-  comments:function(){
 
-    var that = this
-    //更新数据
-    that.setData({
-      hidden: false,
-      nocancel: false
-    })
-  },
   
 
 })

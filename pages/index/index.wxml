@@ -25,20 +25,46 @@
 
 <block wx:for="{{movielist}}" wx:for-index="index">  
   <view class="videoclass"  id="{{item.videoViewPath}}">
-    <video  poster="http://img04.tooopen.com/images/20130712/tooopen_17270713.jpg" objectFit="cover" class="videolist" id="myVideo" 
+    <video  poster="{{item.videoPoster}}" objectFit="cover" class="videolist" id="myVideo" 
     src="{{item.videoViewPath}}" ></video>
-    <view class="line-css" bindtap="detail" >
-    <text>云和梯田</text>
-    
+    <view class="line-css"  >
+  
+    <view class="container1">
+
+    <view class="item1" >
+    <span style="font-size:43rpx;">{{item.videoName}}</span>
+    </view>
+
+    <view class="item1" >
+    <span class="iconfont icon-share" style="font-size:40rpx;"></span>
+    </view>
+
+
+    <view class="item1" >
+    <span class="iconfont icon-favorite"  style="font-size:40rpx;"></span>
+    </view>
+
+    <view class="item1" >
+    <span bindtap="comments" id="{{item.id}}" class="iconfont icon-comments" style="font-size:40rpx;"></span>
+    </view>
+    </view>
+
+
+
     </view>
     <view class="content-css" >
-    <text>云和梯田集旅游休闲、摄影观光、民俗欣赏于一体的云和县首批4A级旅游景区。景区位于崇头镇，距县城5公里，最早开发于唐初，兴于元、明，距今有1000多年历史，总面积51平方公里。</text>
+    <text>{{item.videoIntroduction}}</text>
     </view>
   </view>
 </block>
 
 
 
+<modal hidden="{{hidden}}" title="" confirm-text="发送" cancel-text="取消" 
+bindcancel="cancel" bindconfirm="confirm" no-cancel="{{nocancel}}" style="width:750rpx;position:fixed;">
+<textarea  placeholder="请输入评论内容"/>
+    
+</modal>
 
 
 </view>

@@ -1,0 +1,40 @@
+<!--index.wxml-->
+<view class="container">
+
+
+
+<view class="shuru">
+<textarea  id="replytext" name="replytext" bindinput="bindReplytext" auto-height placeholder="在这里输入您的评论"/>
+<button  id="{{movieid}}"  bindtap="reply">发送</button>
+</view>
+
+
+ 
+<view class="container1">
+
+
+
+
+
+
+
+<!--<view class="container2" style="border-top:1rpx solid #aaa;z-index：1000rpx;">
+<input class="replytext" id="replytext" name="replytext" bindinput="bindReplytext"/>
+<text style="margin-top:30rpx;"  id="{{movieid}}" bindtap="reply">发送</text>
+</view>-->
+
+
+<block wx:for="{{replys}}" wx:for-index="index">    
+          <view class="container2">
+ <text style="margin-top:30rpx;" >{{item.replyContent}}</text>
+          </view>  
+ </block>  
+
+
+</view>
+
+
+
+
+</view>
+

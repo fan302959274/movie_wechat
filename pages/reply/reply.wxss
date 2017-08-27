@@ -1,0 +1,40 @@
+
+
+.replytext{
+  width:600rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+  height:70rpx;
+  border:1rpx solid grey;
+  margin:10rpx;
+}
+.container1{
+  height:100%;
+  width:100%;
+  display:flex;
+  flex-direction:column-reverse;
+}
+
+.container2{
+  height:100%;
+  width:100%;
+  display:flex;
+  justify-content:space-around;
+
+}
+
+.shuru{
+position:fixed;
+height:150rpx;
+width: 100%;
+text-align:left;
+background-color:#efefef;
+border-top:1px solid #CCC;
+bottom:0rpx;
+_position:absolute;
+}
+
+
+
+
+

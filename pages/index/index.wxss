@@ -18,9 +18,7 @@
 .searchicon{
   margin-top:1%;
 }
-.videolist{
-  width: 750rpx;
-}
+
 .videoclass{
   text-align:left;
   margin: 20rpx;
@@ -29,9 +27,24 @@
 
 .line-css {
     border-bottom: 1rpx solid #aaa;
-    margin: 20rpx;
+    margin: 40rpx;
 }
 .content-css {
     margin: 20rpx;
 }
 
+
+
+
+.container1{
+  height:100%;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+}
+
+
+.item1{
+
+  height: 80rpx;
+}

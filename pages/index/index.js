@@ -4,6 +4,8 @@ var app = getApp()
 Page({
   data: {
     motto: 'Hello World',
+    hidden: true,
+    nocancel: true,
     userInfo: {},
     movies: [
       { url: 'http://toppicture.oss-cn-beijing.aliyuncs.com/38508484_38508484_1410501439525.jpg' },
@@ -24,6 +26,7 @@ Page({
     var that = this
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function (userInfo){
+      console.log('全局openid为:' + userInfo.openId)  
         //更新数据
         that.setData({
           userInfo: userInfo
@@ -53,6 +56,9 @@ Page({
                 },
                 success: function (res) {
                   console.log(res.data.msg)
+                  //设置全局openid
+                  app.globalData.openid = res.data.result;
+                  console.log('全局openid为:' + app.globalData.openid)  
                 }
               })
 
@@ -110,5 +116,19 @@ Page({
     wx.navigateTo({
       url: '../detail/detail?src='+src
     })
+  },
+  //评论
+  comments: function (event) {
+    var movieid = event.currentTarget.id;
+    console.log(movieid);
+    wx.navigateTo({
+      url: '../reply/reply?movieid='+movieid
+    })
+  },
+  //取消
+  cancel: function () {
+    this.setData({
+      hidden: true
+    });
   },
 })
