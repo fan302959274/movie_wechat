@@ -23,8 +23,8 @@ Page({
         'content-type': 'application/json'
       },
       data: {
-        //'videoId': that.data.movieid,
-        'videoId': 1,
+        'videoId': that.data.movieid,
+        //'videoId': 1,
       },
       success: function (res) {
         console.log(res.data.resultList);
@@ -45,8 +45,8 @@ Page({
         'content-type': 'application/json'
       },
       data: {
-        //'videoId': that.data.movieid,
-        'videoId': 1,
+        'videoId': that.data.movieid,
+        //'videoId': 1,
       },
       success: function (res) {
         console.log(res.data.resultList);

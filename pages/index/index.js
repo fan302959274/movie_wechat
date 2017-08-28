@@ -13,7 +13,8 @@ Page({
       { url: 'http://toppicture.oss-cn-beijing.aliyuncs.com/1225242074829.jpg' },
       { url: 'http://toppicture.oss-cn-beijing.aliyuncs.com/20160812152819_5549.jpg' },
       { url: 'http://toppicture.oss-cn-beijing.aliyuncs.com/711101975fac4ef1b490585a86219472.jpg' },
-    ]   
+    ]   ,
+    favorite:'iconfont icon-favorite'
   },
   //事件处理函数
   bindViewTap: function() {
@@ -125,6 +126,36 @@ Page({
       url: '../reply/reply?movieid='+movieid
     })
   },
+  //点赞
+  likes: function (event) {
+    var that = this
+    var openid = app.globalData.openid;
+    var movieid = event.currentTarget.id;
+    console.log(movieid);
+    wx.request({
+      url: 'https://www.lazytechfinance.com/movie/api/likes/likes', //仅为示例，并非真实的接口地址
+      method: 'POST',
+      header: {
+        'content-type': 'application/json'
+      },
+      data: {
+        'videoId': movieid,
+        'likesUser': openid
+      },
+      success: function (res) {
+        console.log(res.data);
+        wx.showToast({
+          title: '点赞成功',
+          icon: 'success',
+          duration: 2000
+        })
+        that.setData({
+          favorite: 'iconfont icon-favoritesfilling'
+        })
+      }
+    })
+  },
+  
   //取消
   cancel: function () {
     this.setData({
