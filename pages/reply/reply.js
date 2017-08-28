@@ -17,13 +17,14 @@ Page({
 
     console.log('==============' + that.data.movieid)
     wx.request({
-      url: 'https://www.lazytechfinance.com/movie/api/video/replylist', //仅为示例，并非真实的接口地址
+      url: 'https://www.lazytechfinance.com/movie/api/reply/list', //仅为示例，并非真实的接口地址
       method: 'POST',
       header: {
         'content-type': 'application/json'
       },
       data: {
-        'videoId': that.data.movieid,
+        //'videoId': that.data.movieid,
+        'videoId': 1,
       },
       success: function (res) {
         console.log(res.data.resultList);
@@ -38,13 +39,14 @@ Page({
     console.log("哈哈哈哈哈")
     var that = this
     wx.request({
-      url: 'https://www.lazytechfinance.com/movie/api/video/replylist', //仅为示例，并非真实的接口地址
+      url: 'https://www.lazytechfinance.com/movie/api/reply/list', //仅为示例，并非真实的接口地址
       method: 'POST',
       header: {
         'content-type': 'application/json'
       },
       data: {
-        'videoId': that.data.movieid,
+        //'videoId': that.data.movieid,
+        'videoId': 1,
       },
       success: function (res) {
         console.log(res.data.resultList);
@@ -76,7 +78,7 @@ Page({
     var movieid = e.currentTarget.id;
     console.log('评论的电影id为' + movieid);
     wx.request({
-      url: 'https://www.lazytechfinance.com/movie/api/video/reply', //仅为示例，并非真实的接口地址
+      url: 'https://www.lazytechfinance.com/movie/api/reply/reply', //仅为示例，并非真实的接口地址
       method: 'POST',
       header: {
         'content-type': 'application/json'
