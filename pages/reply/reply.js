@@ -74,6 +74,7 @@ Page({
      })
    },
   reply: function (e) {
+    var that = this
     var openid = app.globalData.openid;
     var movieid = e.currentTarget.id;
     console.log('评论的电影id为' + movieid);
@@ -93,6 +94,24 @@ Page({
           title: '评论成功',
           icon: 'success',
           duration: 2000
+        })
+
+        wx.request({
+          url: 'https://www.lazytechfinance.com/movie/api/reply/list', //仅为示例，并非真实的接口地址
+          method: 'POST',
+          header: {
+            'content-type': 'application/json'
+          },
+          data: {
+            'videoId': movieid,
+            //'videoId': 1,
+          },
+          success: function (res) {
+            console.log(res.data.resultList);
+            that.setData({
+              replys: res.data.resultList
+            })
+          }
         })
       }
     })
