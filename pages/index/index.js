@@ -14,7 +14,8 @@ Page({
       { url: 'http://toppicture.oss-cn-beijing.aliyuncs.com/20160812152819_5549.jpg' },
       { url: 'http://toppicture.oss-cn-beijing.aliyuncs.com/711101975fac4ef1b490585a86219472.jpg' },
     ]   ,
-    favorite:'iconfont icon-favorite'
+    favorite:[],
+    favoritenum:'-1'
   },
   //事件处理函数
   bindViewTap: function() {
@@ -149,9 +150,17 @@ Page({
           icon: 'success',
           duration: 2000
         })
+        console.log("========");
+        console.log(event);
+        console.log(event.currentTarget);
+        console.log(this);
         that.setData({
-          favorite: 'iconfont icon-favoritesfilling'
-        })
+          ['favorite[' + movieid + '].flag']: true
+          
+          
+        });
+
+       
       }
     })
   },

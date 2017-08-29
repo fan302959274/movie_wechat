@@ -41,7 +41,7 @@
 
 
     <view class="item1" >
-    <span bindtap="likes" id="{{item.id}}" class="{{favorite}}"  style="font-size:40rpx;"></span>
+    <span bindtap="likes" id="{{item.id}}"  class="{{favorite[item.id].flag ? 'iconfont icon-favoritesfilling':'iconfont icon-favorite'}}"  style="font-size:40rpx;"></span>
     </view>
 
     <view class="item1" >
