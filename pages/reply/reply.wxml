@@ -29,9 +29,9 @@
 
 
       <view class="namewithcontent" >
-          <text style="font-size:30rpx;color:#ccc;margin:10rpx;">{{item.userNickName}}</text>
-          <text style="font-size:30rpx;color:#ccc;margin:10rpx;">{{item.replyTimeStr}}</text>
-          <text style="margin-left:10rpx;margin-top:20rpx;margin-left:10rpx;">{{item.replyContent}}</text>
+          <text style="font-size:25rpx;color:#ccc;margin:10rpx;">{{item.userNickName}}</text>
+          <text style="font-size:15rpx;color:#ccc;margin-left:10rpx;">{{item.replyTimeStr}}</text>
+          <text style="font-size:30rpx;margin-left:10rpx;margin-top:20rpx;margin-left:10rpx;">{{item.replyContent}}</text>
       </view>  
     </view>
   </block> 
