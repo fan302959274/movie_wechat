@@ -4,18 +4,16 @@ var app = getApp()
 Page({
   data: {
     replytext:'',
-    movieid:null,
-    replys: []
-
+    replys: [],
+    movieid:null
   },
   onLoad: function (option) {
     var that = this
-    //更新数据
+    //之前页面带过来的参数
     that.setData({
       movieid: option.movieid
     })
-
-    console.log('==============' + that.data.movieid)
+    //加载所有指定视频
     wx.request({
       url: 'https://www.lazytechfinance.com/movie/api/reply/list', //仅为示例，并非真实的接口地址
       method: 'POST',
@@ -24,10 +22,8 @@ Page({
       },
       data: {
         'videoId': that.data.movieid,
-        //'videoId': 1,
       },
       success: function (res) {
-        console.log(res.data.resultList);
         that.setData({
           replys: res.data.resultList
         })
@@ -36,7 +32,6 @@ Page({
   },
   // 下拉刷新回调接口
   onPullDownRefresh: function () {
-    console.log("哈哈哈哈哈")
     var that = this
     wx.request({
       url: 'https://www.lazytechfinance.com/movie/api/reply/list', //仅为示例，并非真实的接口地址
@@ -46,10 +41,8 @@ Page({
       },
       data: {
         'videoId': that.data.movieid,
-        //'videoId': 1,
       },
       success: function (res) {
-        console.log(res.data.resultList);
         that.setData({
           replys: res.data.resultList
         })
@@ -59,25 +52,16 @@ Page({
 
   },
 
-  confirm: function () {
-    this.setData({
-      nocancel: !this.data.nocancel
-    });
-    console.log("clicked confirm");
-  }
-,
+  //文本输入绑定数据
   bindReplytext:function(e) {
-    console.log(e.detail.value)
      this.setData({
-       
        replytext: e.detail.value
      })
-   },
+  },
+  //发表评论
   reply: function (e) {
     var that = this
     var openid = app.globalData.openid;
-    var movieid = e.currentTarget.id;
-    console.log('评论的电影id为' + movieid);
     wx.request({
       url: 'https://www.lazytechfinance.com/movie/api/reply/reply', //仅为示例，并非真实的接口地址
       method: 'POST',
@@ -85,8 +69,8 @@ Page({
         'content-type': 'application/json'
       },
       data: {
-        'replyContent': this.data.replytext,
-        'videoId': movieid,
+        'replyContent': that.data.replytext,
+        'videoId': that.data.movieid,
         'replyUser': openid
       },
       success: function (res) {
@@ -95,7 +79,7 @@ Page({
           icon: 'success',
           duration: 2000
         })
-
+        //重新加载数据
         wx.request({
           url: 'https://www.lazytechfinance.com/movie/api/reply/list', //仅为示例，并非真实的接口地址
           method: 'POST',
@@ -103,11 +87,9 @@ Page({
             'content-type': 'application/json'
           },
           data: {
-            'videoId': movieid,
-            //'videoId': 1,
+            'videoId': that.data.movieid,
           },
           success: function (res) {
-            console.log(res.data.resultList);
             that.setData({
               replys: res.data.resultList
             })
