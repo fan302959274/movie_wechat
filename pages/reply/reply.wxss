@@ -1,33 +1,29 @@
 .shuru{
-
-display:flex;
-position:fixed;
-height:100rpx;
-width: 100%;
-text-align:left;
-background-color:#efefef;
-border-top:1px solid #CCC;
-bottom:0rpx;
-_position:absolute;
-flex-direction:row;
-justify-content:space-between;
+  display:flex;
+  bottom:0rpx;
+  position:fixed;
+  height:100rpx;
+  width: 100%;
+  text-align:left;
+  background-color:#efefef;
+  border-top:1rpx solid #CCC;
 }
 
-.replynode{
+.reply-node{
   width: 100%;
   height:100%;
   border-top:1rpx solid #CCC;
+  margin-top: 50rpx;
   display:flex;
   flex-direction:row;
   justify-content:flex-start;
 }
 
-.namewithcontent{
+.name-content{
   display:flex;
   flex-direction:column;
   justify-content:flex-start;
 }
-
 
 .userinfo-avatar {
   width: 60rpx;

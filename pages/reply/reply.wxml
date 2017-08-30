@@ -11,13 +11,13 @@
   
 <view style="width:100%;">
   <block wx:for="{{replys}}" wx:for-index="index">   
-    <view class="replynode">
+    <view class="reply-node">
       <view>
           <image class="userinfo-avatar" src="{{item.userAvatarUrl}}" background-size="cover"></image>
       </view> 
 
 
-      <view class="namewithcontent" >
+      <view class="name-content" >
           <text style="font-size:25rpx;color:#ccc;margin:10rpx;">{{item.userNickName}}</text>
           <text style="font-size:15rpx;color:#ccc;margin-left:10rpx;">{{item.replyTimeStr}}</text>
           <text style="font-size:30rpx;margin-left:10rpx;margin-top:20rpx;margin-left:10rpx;">{{item.replyContent}}</text>

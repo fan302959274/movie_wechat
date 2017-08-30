@@ -15,7 +15,8 @@ Page({
       { url: 'http://toppicture.oss-cn-beijing.aliyuncs.com/711101975fac4ef1b490585a86219472.jpg' },
     ]   ,
     favorite:[],
-    favoritenum:'-1'
+    favoritenum:'-1',
+    movielist:[]
   },
   //事件处理函数
   bindViewTap: function() {
@@ -82,7 +83,9 @@ Page({
         'user': 'test'
       },
       success: function (res) {
-        console.log(res.data);
+        console.log("======================"+res.data.resultList);
+        console.log(res.data.resultList);
+
         that.setData({
           movielist:res.data.resultList
         })
@@ -156,11 +159,8 @@ Page({
         console.log(this);
         that.setData({
           ['favorite[' + movieid + '].flag']: true
-          
-          
+  
         });
-
-       
       }
     })
   },

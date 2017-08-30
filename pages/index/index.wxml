@@ -32,7 +32,7 @@
     <view class="container1">
 
     <view class="item1" style="width:40%;">
-    <span style="font-size:43rpx;">{{item.videoName}}</span>
+    <span style="font-size:43rpx;">{{item.videoName}}{{index}}</span>
     </view>
 
     <view class="item1" style="text-align:right;width:20%;">
@@ -41,11 +41,11 @@
 
 
     <view class="item1" style="width:20%;text-align:right;" >
-    <span bindtap="likes" id="{{item.id}}"  class="{{favorite[item.id].flag ? 'iconfont icon-favoritesfilling':'iconfont icon-favorite'}}"  style="font-size:40rpx;"></span>
+    <span bindtap="likes" id="{{item.id}}"  class="{{favorite[item.id].flag ? 'iconfont icon-favoritesfilling':'iconfont icon-favorite'}}"  style="font-size:40rpx;"><text  style="margin-left:20rpx;font-size:20rpx;color:#ccc;">{{item.likesCount}}</text></span>
     </view>
 
     <view bindtap="comments" id="{{item.id}}" class="item1" style="width:20%;text-align:right;">
-    <span  class="iconfont icon-comments" style="font-size:40rpx;"></span>
+    <span  class="iconfont icon-comments" style="font-size:40rpx;"><text  style="margin-left:20rpx;font-size:20rpx;color:#ccc;">{{item.replyCount}}</text></span>
     </view>
     </view>
 
