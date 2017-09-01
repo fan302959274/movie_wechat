@@ -135,7 +135,9 @@ Page({
     var that = this
     var openid = app.globalData.openid;
     var movieid = event.currentTarget.id;
-    console.log(movieid);
+    var index = event.currentTarget.dataset.index;
+    var likesCount = event.currentTarget.dataset.likescount;
+    
     wx.request({
       url: 'https://www.lazytechfinance.com/movie/api/likes/likes', //仅为示例，并非真实的接口地址
       method: 'POST',
@@ -158,9 +160,13 @@ Page({
         console.log(event.currentTarget);
         console.log(this);
         that.setData({
-          ['favorite[' + movieid + '].flag']: true
+          ['favorite[' + movieid + '].flag']: true,
+          ['movielist[' + index + '].likesCount']: parseInt(likesCount)+1
   
         });
+        console.log("-----movielist------");
+        console.log(that.data.movielist);
+        
       }
     })
   },
