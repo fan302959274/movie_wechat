@@ -1,7 +1,7 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/my/my",
+    "pages/items/items",
     "pages/upload/upload",
     "pages/detail/detail",
     "pages/reply/reply",
@@ -31,7 +31,7 @@
       {
         "selectedIconPath": "images/type.png",
         "iconPath": "images/type.png",
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/items/items",
         "text": "分类"
       },
       {

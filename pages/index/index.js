@@ -14,8 +14,6 @@ Page({
       { url: 'http://toppicture.oss-cn-beijing.aliyuncs.com/20160812152819_5549.jpg' },
       { url: 'http://toppicture.oss-cn-beijing.aliyuncs.com/711101975fac4ef1b490585a86219472.jpg' },
     ]   ,
-    favorite:[],
-    favoritenum:'-1',
     movielist:[]
   },
   //事件处理函数
@@ -62,6 +60,25 @@ Page({
                   //设置全局openid
                   app.globalData.openid = res.data.result;
                   console.log('全局openid为:' + app.globalData.openid)  
+
+                  wx.request({
+                    url: 'https://www.lazytechfinance.com/movie/api/video/list', //仅为示例，并非真实的接口地址
+                    method: 'POST',
+                    header: {
+                      'content-type': 'application/json'
+                    },
+                    data: {
+                      likesUser: app.globalData.openid 
+                    },
+                    success: function (res) {
+                      console.log("======================" + app.globalData.openid);
+                      console.log(res.data.resultList);
+
+                      that.setData({
+                        movielist: res.data.resultList
+                      })
+                    }
+                  })
                 }
               })
 
@@ -76,21 +93,7 @@ Page({
      
 
     })
-    wx.request({
-      url: 'https://www.lazytechfinance.com/movie/api/video/list', //仅为示例，并非真实的接口地址
-      method: 'POST',
-      formData: {
-        'user': 'test'
-      },
-      success: function (res) {
-        console.log("======================"+res.data.resultList);
-        console.log(res.data.resultList);
-
-        that.setData({
-          movielist:res.data.resultList
-        })
-      }
-    })
+    
   },
   // 下拉刷新回调接口
   onPullDownRefresh: function () {
@@ -98,8 +101,11 @@ Page({
     wx.request({
       url: 'https://www.lazytechfinance.com/movie/api/video/list', //仅为示例，并非真实的接口地址
       method: 'POST',
-      formData: {
-        'user': 'test'
+      header: {
+        'content-type': 'application/json'
+      },
+      data: {
+        likesUser: app.globalData.openid
       },
       success: function (res) {
         console.log(res.data);
@@ -137,38 +143,48 @@ Page({
     var movieid = event.currentTarget.id;
     var index = event.currentTarget.dataset.index;
     var likesCount = event.currentTarget.dataset.likescount;
+    var likesFlag = event.currentTarget.dataset.likesflag;
     
-    wx.request({
-      url: 'https://www.lazytechfinance.com/movie/api/likes/likes', //仅为示例，并非真实的接口地址
-      method: 'POST',
-      header: {
-        'content-type': 'application/json'
-      },
-      data: {
-        'videoId': movieid,
-        'likesUser': openid
-      },
-      success: function (res) {
-        console.log(res.data);
-        wx.showToast({
-          title: '点赞成功',
-          icon: 'success',
-          duration: 2000
-        })
-        console.log("========");
-        console.log(event);
-        console.log(event.currentTarget);
-        console.log(this);
-        that.setData({
-          ['favorite[' + movieid + '].flag']: true,
-          ['movielist[' + index + '].likesCount']: parseInt(likesCount)+1
+    if (likesFlag){
+      wx.showToast({
+        title: '您已点赞',
+        icon: 'success',
+        duration: 2000
+      })
+    }else{
+      wx.request({
+        url: 'https://www.lazytechfinance.com/movie/api/likes/likes', //仅为示例，并非真实的接口地址
+        method: 'POST',
+        header: {
+          'content-type': 'application/json'
+        },
+        data: {
+          'videoId': movieid,
+          'likesUser': openid
+        },
+        success: function (res) {
+          console.log(res.data);
+          wx.showToast({
+            title: '点赞成功',
+            icon: 'success',
+            duration: 2000
+          })
+          console.log("========");
+          console.log(event);
+          console.log(event.currentTarget);
+          console.log(this);
+          that.setData({
+            ['movielist[' + index + '].likesCount']: parseInt(likesCount) + 1,
+            ['movielist[' + index + '].likesFlag']: true
+
+          });
+          console.log("-----movielist------");
+          console.log(that.data.movielist);
+
+        }
+      })
+    }
   
-        });
-        console.log("-----movielist------");
-        console.log(that.data.movielist);
-        
-      }
-    })
   },
   
   //取消
