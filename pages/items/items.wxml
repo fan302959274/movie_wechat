@@ -1,0 +1,12 @@
+<!--pages/items/items.wxml-->
+<view class="items-view">
+ 
+<block wx:for="{{items}}" wx:for-index="index">    
+ 
+    <view class="items-node" style="background-image:url({{item.paramUrl}})">{{item.paramValue}}</view>
+   
+</block>    
+ 
+
+</view>
+

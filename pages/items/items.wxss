@@ -1,0 +1,17 @@
+/* pages/items/items.wxss */
+
+.items-view{
+    min-height: 100%;
+    background-color: #EEEEEE;
+    flex-flow:wrap;
+    display: flex;
+    justify-content:space-around;
+}
+.items-node{
+  height:300rpx;
+  width:300rpx;
+  margin-bottom:40rpx;
+  margin-top:40rpx;
+  border-radius: 10rpx;
+  border:1rpx solid #CCC;
+}
