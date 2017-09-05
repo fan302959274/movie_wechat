@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-      items:[]
+      videos:[],
+      searchtext:null
   },
 
   /**
@@ -14,20 +15,44 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'https://www.lazytechfinance.com/movie/api/param/video', //仅为示例，并非真实的接口地址
+      url: 'https://www.lazytechfinance.com/movie/api/video/search', //仅为示例，并非真实的接口地址
       method: 'POST',
       header: {
         'content-type': 'application/json'
       },
       data: {
-        paramType: '001'
+        videoName: ''
       },
       success: function (res) {
         console.log(res.data.resultList);
         that.setData({
-          items: res.data.resultList
+          videos: res.data.resultList
         })
       }
+    })
+  },
+
+  //文本输入绑定数据
+  bindSearchtext: function (e) {
+    var that = this;
+    wx.request({
+      url: 'https://www.lazytechfinance.com/movie/api/video/search', //仅为示例，并非真实的接口地址
+      method: 'POST',
+      header: {
+        'content-type': 'application/json'
+      },
+      data: {
+        videoName: e.detail.value
+      },
+      success: function (res) {
+        console.log(res.data.resultList);
+        that.setData({
+          videos: res.data.resultList
+        })
+      }
+    })
+    this.setData({
+      searchtext: e.detail.value
     })
   },
   
@@ -66,18 +91,18 @@ Page({
     console.log(1);
     var that = this
     wx.request({
-      url: 'https://www.lazytechfinance.com/movie/api/param/video', //仅为示例，并非真实的接口地址
+      url: 'https://www.lazytechfinance.com/movie/api/video/search', //仅为示例，并非真实的接口地址
       method: 'POST',
       header: {
         'content-type': 'application/json'
       },
       data: {
-        paramType: '001'
+        videoName: ''
       },
       success: function (res) {
         console.log(res.data.resultList);
         that.setData({
-          items: res.data.resultList
+          videos: res.data.resultList
         })
         wx.stopPullDownRefresh()
       }

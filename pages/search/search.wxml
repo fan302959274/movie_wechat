@@ -1,0 +1,23 @@
+<!--index.wxml-->
+<view class="container">
+  
+
+  <!--search-->
+  <view  class="search-view">
+    <icon type="search" class="search-icon"></icon>
+    <input placeholder="搜索" bindinput="bindSearchtext" class="search-input"></input>
+  </view>
+
+
+<block wx:for="{{videos}}" wx:for-index="index">    
+ 
+    <view  class="search-ressult-view">
+    <icon type="search" class="search-icon"></icon>
+    <text class="search-result-text">{{item.videoName}}</text>
+  </view>
+
+   
+</block>  
+  
+
+</view>

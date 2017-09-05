@@ -193,4 +193,11 @@ Page({
       hidden: true
     });
   },
+  //搜索
+  search: function (event) {
+  
+    wx.navigateTo({
+      url: '../search/search'
+    })
+  },
 })

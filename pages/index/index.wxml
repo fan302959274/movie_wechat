@@ -10,7 +10,7 @@
 
 
   <!--search-->
-  <view  class="searchview">
+  <view  class="searchview" bindtap="search">
     <icon type="search" class="searchicon" ></icon>
   </view>
   <!--swiper-->    

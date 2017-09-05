@@ -1,0 +1,40 @@
+.search-view{
+  
+  width:720rpx;
+  text-align:left;
+  border-radius: 10rpx;
+  background-color: #fff;
+  margin:1%;
+  flex-flow:wrap;
+  display: flex;
+  justify-content:space-around;
+ 
+}
+.search-icon{
+
+  margin:1%;
+
+}
+.search-input{
+  width:640rpx;
+  margin:1%;
+}
+
+
+.search-ressult-view{
+  padding:10rpx;
+  width:620rpx;
+  text-align:left;
+  
+  margin:1%;
+  flex-flow:wrap;
+  display: flex;
+  justify-content:space-around;
+  border-bottom:1rpx solid #ccc;
+}
+
+.search-result-text{
+   width:540rpx;
+   
+
+}
