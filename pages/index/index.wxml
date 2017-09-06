@@ -1,13 +1,5 @@
 <!--index.wxml-->
 <view class="container">
-  <!--<view  bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>-->
-
 
   <!--search-->
   <view  class="searchview" bindtap="search">
@@ -22,49 +14,39 @@
         </block>    
   </swiper>
   <!--video-->
-
-<block wx:for="{{movielist}}" wx:for-index="index">  
-  <view class="videoclass"  id="{{item.videoViewPath}}">
-    <video  poster="{{item.videoPoster}}" objectFit="cover" class="videolist" id="myVideo" 
-    src="{{item.videoViewPath}}" ></video>
+  <block wx:for="{{movielist}}" wx:for-index="index">  
+    <view class="videoclass"  id="{{item.videoViewPath}}">
+      <video  poster="{{item.videoPoster}}" objectFit="cover" class="videolist" id="myVideo" 
+      src="{{item.videoViewPath}}" ></video>
     <view class="line-css"  >
+      <view class="btn-view">
+        <view class="btn-node" style="width:40%;">
+          <span style="font-size:35rpx;font-family: SimHei;">{{item.videoName}}</span>
+        </view>
+
+        <view class="btn-node" style="text-align:right;width:20%;">
+          <span class="iconfont icon-share" style="font-size:40rpx;"></span>
+        </view>
+
+
+        <view class="btn-node" style="width:20%;text-align:right;" >
+          <span bindtap="likes" id="{{item.id}}"  data-index="{{index}}" data-likescount="{{item.likesCount}}" data-likesflag="{{item.likesFlag}}" class="{{item.likesFlag ? 'iconfont icon-favoritesfilling':'iconfont icon-favorite'}}"  style="font-size:40rpx;"><text  style="margin-left:20rpx;font-size:20rpx;color:#ccc;">{{item.likesCount}}</text></span>
+        </view>
+
+        <view bindtap="comments" id="{{item.id}}" class="btn-node" style="width:20%;text-align:right;">
+          <span  class="iconfont icon-comments" style="font-size:40rpx;"><text  style="margin-left:20rpx;font-size:20rpx;color:#ccc;">{{item.replyCount}}</text></span>
+        </view>
+      </view>
+    </view>
+
+
+      <view class="content-css" >
+      <text>{{item.videoIntroduction}}</text>
+      </view>
+    </view>
+  </block>
+
+
+
   
-    <view class="container1">
-
-    <view class="item1" style="width:40%;">
-    <span style="font-size:43rpx;">{{item.videoName}}</span>
-    </view>
-
-    <view class="item1" style="text-align:right;width:20%;">
-    <span class="iconfont icon-share" style="font-size:40rpx;"></span>
-    </view>
-
-
-    <view class="item1" style="width:20%;text-align:right;" >
-    <span bindtap="likes" id="{{item.id}}"  data-index="{{index}}" data-likescount="{{item.likesCount}}" data-likesflag="{{item.likesFlag}}" class="{{item.likesFlag ? 'iconfont icon-favoritesfilling':'iconfont icon-favorite'}}"  style="font-size:40rpx;"><text  style="margin-left:20rpx;font-size:20rpx;color:#ccc;">{{item.likesCount}}</text></span>
-    </view>
-
-    <view bindtap="comments" id="{{item.id}}" class="item1" style="width:20%;text-align:right;">
-    <span  class="iconfont icon-comments" style="font-size:40rpx;"><text  style="margin-left:20rpx;font-size:20rpx;color:#ccc;">{{item.replyCount}}</text></span>
-    </view>
-    </view>
-
-
-
-    </view>
-    <view class="content-css" >
-    <text>{{item.videoIntroduction}}</text>
-    </view>
-  </view>
-</block>
-
-
-
-<modal hidden="{{hidden}}" title="" confirm-text="发送" cancel-text="取消" 
-bindcancel="cancel" bindconfirm="confirm" no-cancel="{{nocancel}}" style="width:750rpx;position:fixed;">
-<textarea  placeholder="请输入评论内容"/>
-    
-</modal>
-
-
 </view>

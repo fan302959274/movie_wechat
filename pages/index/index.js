@@ -24,6 +24,7 @@ Page({
   },
   onLoad: function () {
     
+  
     console.log('onLoad')
     var that = this
     wx.request({
@@ -44,6 +45,7 @@ Page({
         })
       }
     })
+  
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function (userInfo){
       console.log('全局openid为:' + userInfo.openId)  
@@ -107,7 +109,7 @@ Page({
           }
         });
 
-        
+    
      
      
 
@@ -138,7 +140,7 @@ Page({
   },
   onReachBottom: function () {
     // Do something when page reach bottom.
-    console.log('circle 下一页');
+    //console.log('circle 下一页');
   },
   //详细
   detail: function (event) {

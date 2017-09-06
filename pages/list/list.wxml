@@ -6,10 +6,10 @@
 
 
 <block wx:for="{{videos}}" wx:for-index="index">    
- 
-    <image src="{{item.videoPoster}}"  bindtap="detail"  data-src="{{item.videoViewPath}}" class="list-image"></image>
-
-   
+      <view class="list-view" bindtap="detail"  data-src="{{item.videoViewPath}}" style="background-image:url({{item.videoPoster}})"> 
+        <view class="list-name">旅行</view>
+        <view class="list-time">纪录片  09:35</view>
+      </view>
 </block>  
   
 

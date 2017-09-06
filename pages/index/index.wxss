@@ -24,24 +24,23 @@
   margin: 20rpx;
 
 }
-
 .line-css {
     border-bottom: 1rpx solid #aaa;
     margin: 40rpx;
 }
 .content-css {
-    margin: 20rpx;
-    color: #ccc;
+   font-size: 30rpx;
+   margin: 40rpx;
+   color: #ccc;
 }
 
-.container1{
+.btn-view{
   height:100%;
   width:100%;
   display:flex;
   justify-content:space-between;
 }
 
-.item1{
-
+.btn-node{
   height: 80rpx;
 }
