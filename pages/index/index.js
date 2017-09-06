@@ -23,8 +23,27 @@ Page({
     })
   },
   onLoad: function () {
+    
     console.log('onLoad')
     var that = this
+    wx.request({
+      url: 'https://www.lazytechfinance.com/movie/api/video/list', //仅为示例，并非真实的接口地址
+      method: 'POST',
+      header: {
+        'content-type': 'application/json'
+      },
+      data: {
+        likesUser: app.globalData.openid
+      },
+      success: function (res) {
+        console.log("======================" + app.globalData.openid);
+        console.log(res.data.resultList);
+
+        that.setData({
+          movielist: res.data.resultList
+        })
+      }
+    })
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function (userInfo){
       console.log('全局openid为:' + userInfo.openId)  
@@ -60,7 +79,7 @@ Page({
                   //设置全局openid
                   app.globalData.openid = res.data.result;
                   console.log('全局openid为:' + app.globalData.openid)  
-
+                  //授权后重新加载列表数据
                   wx.request({
                     url: 'https://www.lazytechfinance.com/movie/api/video/list', //仅为示例，并非真实的接口地址
                     method: 'POST',
@@ -68,7 +87,7 @@ Page({
                       'content-type': 'application/json'
                     },
                     data: {
-                      likesUser: app.globalData.openid 
+                      likesUser: app.globalData.openid
                     },
                     success: function (res) {
                       console.log("======================" + app.globalData.openid);

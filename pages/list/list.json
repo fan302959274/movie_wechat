@@ -1,0 +1,7 @@
+{
+  "backgroundTextStyle": "dark",
+  "navigationBarBackgroundColor": "#EEEEEE",
+  "navigationBarTitleText": "列表",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": true
+}

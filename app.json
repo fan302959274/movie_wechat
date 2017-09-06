@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/items/items",
     "pages/search/search",
+    "pages/list/list",
     "pages/upload/upload",
     "pages/detail/detail",
     "pages/reply/reply",

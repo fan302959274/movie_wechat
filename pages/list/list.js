@@ -6,14 +6,19 @@ Page({
    */
   data: {
       videos:[],
-      searchtext:null
+      id:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
+
+    var that = this
+    //之前页面带过来的参数
+    that.setData({
+      id: options.id
+    })
     wx.request({
       url: 'https://www.lazytechfinance.com/movie/api/video/search', //仅为示例，并非真实的接口地址
       method: 'POST',
@@ -21,7 +26,7 @@ Page({
         'content-type': 'application/json'
       },
       data: {
-        videoName: ''
+        id: options.id
       },
       success: function (res) {
         console.log(res.data.resultList);
@@ -32,38 +37,8 @@ Page({
     })
   },
 
-  //文本输入绑定数据
-  bindSearchtext: function (e) {
-    var that = this;
-    wx.request({
-      url: 'https://www.lazytechfinance.com/movie/api/video/search', //仅为示例，并非真实的接口地址
-      method: 'POST',
-      header: {
-        'content-type': 'application/json'
-      },
-      data: {
-        videoName: e.detail.value
-      },
-      success: function (res) {
-        console.log(res.data.resultList);
-        that.setData({
-          videos: res.data.resultList
-        })
-      }
-    })
-    this.setData({
-      searchtext: e.detail.value
-    })
-  },
-
- 
-  search: function (e) {
-    var id = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: '../list/list?id=' + id
-    })
-    
-  },
+  
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -105,7 +80,7 @@ Page({
         'content-type': 'application/json'
       },
       data: {
-        videoName: ''
+        id: that.data.id
       },
       success: function (res) {
         console.log(res.data.resultList);

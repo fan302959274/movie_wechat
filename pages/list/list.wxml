@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<view class="container">
+  
+
+
+
+
+<block wx:for="{{videos}}" wx:for-index="index">    
+ 
+    <image src="{{item.videoPoster}}" class="list-image"></image>
+
+   
+</block>  
+  
+
+</view>
