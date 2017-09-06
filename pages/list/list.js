@@ -6,7 +6,8 @@ Page({
    */
   data: {
       videos:[],
-      id:null
+      id:null,
+      videotype:null
   },
 
   /**
@@ -17,7 +18,8 @@ Page({
     var that = this
     //之前页面带过来的参数
     that.setData({
-      id: options.id
+      id: options.id,
+      videotype: options.videotype
     })
     wx.request({
       url: 'https://www.lazytechfinance.com/movie/api/video/search', //仅为示例，并非真实的接口地址
@@ -26,7 +28,8 @@ Page({
         'content-type': 'application/json'
       },
       data: {
-        id: options.id
+        "id": options.id,
+        "videoType": options.videotype
       },
       success: function (res) {
         console.log(res.data.resultList);
@@ -37,7 +40,13 @@ Page({
     })
   },
 
-  
+  //详细
+  detail: function (event) {
+    var src = event.currentTarget.dataset.src;
+    wx.navigateTo({
+      url: '../detail/detail?src=' + src
+    })
+  },
   
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -80,7 +89,9 @@ Page({
         'content-type': 'application/json'
       },
       data: {
-        id: that.data.id
+        
+        "id": that.data.id,
+        "videoType": that.data.videotype
       },
       success: function (res) {
         console.log(res.data.resultList);

@@ -3,7 +3,7 @@
 var app = getApp()
 Page({
   data: {
-   
+   src:null
 
   },
   onLoad: function (option) {

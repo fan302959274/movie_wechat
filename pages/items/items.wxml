@@ -3,7 +3,7 @@
  
 <block wx:for="{{items}}" wx:for-index="index">    
  
-    <view class="items-node" style="background-image:url({{item.paramUrl}})">{{item.paramValue}}</view>
+    <view class="items-node"  bindtap="search"  data-videotype="{{item.paramCode}}"  style="background-image:url({{item.paramUrl}})">{{item.paramValue}}</view>
    
 </block>    
  

@@ -30,7 +30,14 @@ Page({
       }
     })
   },
-  
+  search: function (e) {
+    var videotype = e.currentTarget.dataset.videotype;
+    console.log("videotype" + videotype);
+    wx.navigateTo({
+      url: '../list/list?videotype=' + videotype
+    })
+
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

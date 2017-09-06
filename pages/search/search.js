@@ -13,23 +13,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    wx.request({
-      url: 'https://www.lazytechfinance.com/movie/api/video/search', //仅为示例，并非真实的接口地址
-      method: 'POST',
-      header: {
-        'content-type': 'application/json'
-      },
-      data: {
-        videoName: ''
-      },
-      success: function (res) {
-        console.log(res.data.resultList);
-        that.setData({
-          videos: res.data.resultList
-        })
-      }
-    })
+    
   },
 
   //文本输入绑定数据
@@ -45,10 +29,18 @@ Page({
         videoName: e.detail.value
       },
       success: function (res) {
-        console.log(res.data.resultList);
-        that.setData({
-          videos: res.data.resultList
-        })
+        console.log(e.detail.value=='');
+
+        if (e.detail.value != null && e.detail.value != ''){
+          that.setData({
+            videos: res.data.resultList
+          })
+        }else{
+          that.setData({
+            videos: []
+          })
+        }
+       
       }
     })
     this.setData({

@@ -7,7 +7,7 @@
 
 <block wx:for="{{videos}}" wx:for-index="index">    
  
-    <image src="{{item.videoPoster}}" class="list-image"></image>
+    <image src="{{item.videoPoster}}"  bindtap="detail"  data-src="{{item.videoViewPath}}" class="list-image"></image>
 
    
 </block>  
