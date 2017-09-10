@@ -151,7 +151,7 @@ Page({
   },
   //评论
   comments: function (event) {
-    var movieid = event.currentTarget.id;
+    var movieid = event.currentTarget.dataset.videoid;
     console.log(movieid);
     wx.navigateTo({
       url: '../reply/reply?movieid='+movieid
@@ -161,7 +161,7 @@ Page({
   likes: function (event) {
     var that = this
     var openid = app.globalData.openid;
-    var movieid = event.currentTarget.id;
+    var movieid = event.currentTarget.dataset.videoid;
     var index = event.currentTarget.dataset.index;
     var likesCount = event.currentTarget.dataset.likescount;
     var likesFlag = event.currentTarget.dataset.likesflag;

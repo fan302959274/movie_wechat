@@ -2,7 +2,7 @@
 <view class="container">
 
   <!--search-->
-  <view  class="searchview" bindtap="search">
+  <view  class="searchview" catchtouchstart="search" style="border:1rpx solid #ccc;">
     <icon type="search" class="searchicon" ></icon>
   </view>
   <!--swiper-->    
@@ -15,7 +15,7 @@
   </swiper>
   <!--video-->
   <block wx:for="{{movielist}}" wx:for-index="index">  
-    <view class="videoclass"  id="{{item.videoViewPath}}">
+    <view class="videoclass">
       <video  poster="{{item.videoPoster}}" objectFit="cover" class="videolist" id="myVideo" 
       src="{{item.videoViewPath}}" ></video>
     <view class="line-css"  >
@@ -30,10 +30,10 @@
 
 
         <view class="btn-node" style="width:20%;text-align:right;" >
-          <span bindtap="likes" id="{{item.id}}"  data-index="{{index}}" data-likescount="{{item.likesCount}}" data-likesflag="{{item.likesFlag}}" class="{{item.likesFlag ? 'iconfont icon-favoritesfilling':'iconfont icon-favorite'}}"  style="font-size:40rpx;"><text  style="margin-left:20rpx;font-size:20rpx;color:#ccc;">{{item.likesCount}}</text></span>
+          <span catchtouchstart="likes" data-videoid="{{item.id}}"  data-index="{{index}}" data-likescount="{{item.likesCount}}" data-likesflag="{{item.likesFlag}}" class="{{item.likesFlag ? 'iconfont icon-favoritesfilling':'iconfont icon-favorite'}}"  style="font-size:40rpx;"><text  style="margin-left:20rpx;font-size:20rpx;color:#ccc;">{{item.likesCount}}</text></span>
         </view>
 
-        <view bindtap="comments" id="{{item.id}}" class="btn-node" style="width:20%;text-align:right;">
+        <view catchtouchstart="comments" data-videoid="{{item.id}}" class="btn-node" style="width:20%;text-align:right;">
           <span  class="iconfont icon-comments" style="font-size:40rpx;"><text  style="margin-left:20rpx;font-size:20rpx;color:#ccc;">{{item.replyCount}}</text></span>
         </view>
       </view>
