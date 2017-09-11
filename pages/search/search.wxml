@@ -5,7 +5,7 @@
   <!--search-->
   <view  class="search-view">
     <icon type="search" class="search-icon" ></icon>
-    <input placeholder="搜索" bindinput="bindSearchtext" class="search-input"></input>
+    <input placeholder="搜索" bindinput="bindSearchtext" focus="true" class="search-input"></input>
   </view>
 
 

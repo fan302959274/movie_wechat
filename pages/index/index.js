@@ -215,7 +215,7 @@ Page({
     });
   },
   //搜索
-  search: function (event) {
+  search: function (e) {
   
     wx.navigateTo({
       url: '../search/search'
