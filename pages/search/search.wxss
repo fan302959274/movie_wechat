@@ -5,7 +5,7 @@
   border-radius: 10rpx;
   background-color: #fff;
   margin:1%;
-  flex-flow:wrap;
+  /**flex-flow:wrap;**/
   display: flex;
   justify-content:space-around;
  
