@@ -9,15 +9,48 @@
   </view>
 
 
-<block wx:for="{{videos}}" wx:for-index="index">    
- 
-    <view  class="search-ressult-view" bindtap="search"  data-id="{{item.id}}" >
-        <icon type="search" class="search-icon" size="20"></icon>
-        <text class="search-result-text">{{item.videoName}}</text>
-    </view>
-
-   
-</block>  
+  <block wx:for="{{videos}}" wx:for-index="index">    
   
+      <view  class="search-ressult-view" bindtap="search"  data-id="{{item.id}}" >
+          <icon type="search" class="search-icon" size="20"></icon>
+          <text class="search-result-text">{{item.videoName}}</text>
+      </view>
+
+    
+  </block>  
+  
+
+  <!--history-->
+  <view  class="search-history">
+    <text>搜索历史</text>
+    <icon class="iconfont icon-delete" ></icon>
+  </view>
+  <!--hot-->
+  <view  class="search-historylist">
+    <span style="border:1rpx solid grey; border-radius: 10rpx;padding:5rpx;">热搜</span>
+    <span style="border:1rpx solid grey; border-radius: 10rpx;padding:5rpx;">热搜</span>
+    <span style="border:1rpx solid grey; border-radius: 10rpx;padding:5rpx;">热搜</span>
+    <span style="border:1rpx solid grey; border-radius: 10rpx;padding:5rpx;">热搜</span>
+    <span style="border:1rpx solid grey; border-radius: 10rpx;padding:5rpx;">热搜</span>
+    
+  </view>
+  
+
+   <!--hot-->
+  <view  class="search-hot">
+    <text>热门搜索</text>
+    
+  </view>
+ <!--hot-->
+  <view  class="search-hotlist">
+    <span style="border:1rpx solid grey; border-radius: 10rpx;padding:5rpx;">热搜</span>
+    <span style="border:1rpx solid grey; border-radius: 10rpx;padding:5rpx;">热搜</span>
+    <span style="border:1rpx solid grey; border-radius: 10rpx;padding:5rpx;">热搜</span>
+    <span style="border:1rpx solid grey; border-radius: 10rpx;padding:5rpx;">热搜</span>
+    <span style="border:1rpx solid grey; border-radius: 10rpx;padding:5rpx;">热搜</span>
+    
+  </view>
+  
+
 
 </view>

@@ -38,3 +38,35 @@
    
 
 }
+
+.search-history{
+  padding:20rpx;
+  width:700rpx;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+
+
+.search-hot{
+  padding:20rpx;
+  width:700rpx;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+
+.search-historylist{
+  padding:10rpx;
+  width:700rpx;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+.search-hotlist{
+  padding:10rpx;
+  width:700rpx;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
