@@ -1,4 +1,5 @@
 // pages/items/items.js
+var app = getApp()
 Page({
 
   /**
@@ -45,6 +46,14 @@ Page({
     })
     this.setData({
       searchtext: e.detail.value
+    })
+  },
+
+  bindSearchconfirm: function (e) {
+    var videoname = e.detail.value;
+    console.log("videoname" + videoname);
+    wx.navigateTo({
+      url: '../list/list?videoname=' + videoname + '&searchtype=name'
     })
   },
 

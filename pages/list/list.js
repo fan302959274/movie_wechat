@@ -1,4 +1,5 @@
 // pages/items/items.js
+var app = getApp()
 Page({
 
   /**
@@ -7,7 +8,9 @@ Page({
   data: {
       videos:[],
       id:null,
-      videotype:null
+      videotype:null,
+      videoname:null,
+      searchtype:null
   },
 
   /**
@@ -15,21 +18,31 @@ Page({
    */
   onLoad: function (options) {
 
+    var url = "";
+    if ("name"==options.searchtype){
+      url = "https://www.lazytechfinance.com/movie/api/video/searchbyname";
+    }else{
+      url = "https://www.lazytechfinance.com/movie/api/video/search";
+    }
     var that = this
     //之前页面带过来的参数
     that.setData({
       id: options.id,
-      videotype: options.videotype
+      videotype: options.videotype,
+      videoname: options.videoname,
+      searchtype: options.searchtype
     })
     wx.request({
-      url: 'https://www.lazytechfinance.com/movie/api/video/search', //仅为示例，并非真实的接口地址
+      url: url, //仅为示例，并非真实的接口地址
       method: 'POST',
       header: {
         'content-type': 'application/json'
       },
       data: {
         "id": options.id,
-        "videoType": options.videotype
+        "videoType": options.videotype,
+        "videoName": options.videoname,
+        "searchUser": app.globalData.openid
       },
       success: function (res) {
         console.log(res.data.resultList);
@@ -91,7 +104,8 @@ Page({
       data: {
         
         "id": that.data.id,
-        "videoType": that.data.videotype
+        "videoType": that.data.videotype,
+        "videoName": that.data.videoname
       },
       success: function (res) {
         console.log(res.data.resultList);
