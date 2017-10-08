@@ -61,12 +61,12 @@
   width:700rpx;
   display: flex;
   flex-direction:row;
-  justify-content:space-between;
+  justify-content:flex-start;
 }
 .search-hotlist{
   padding:10rpx;
   width:700rpx;
   display: flex;
   flex-direction:row;
-  justify-content:space-between;
+  justify-content:flex-start;
 }

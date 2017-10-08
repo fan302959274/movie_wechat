@@ -27,13 +27,15 @@
   </view>
   <!--hot-->
   <view  class="search-historylist">
-    <span style="border:1rpx solid grey; border-radius: 10rpx;padding:5rpx;">热搜</span>
-    <span style="border:1rpx solid grey; border-radius: 10rpx;padding:5rpx;">热搜</span>
-    <span style="border:1rpx solid grey; border-radius: 10rpx;padding:5rpx;">热搜</span>
-    <span style="border:1rpx solid grey; border-radius: 10rpx;padding:5rpx;">热搜</span>
-    <span style="border:1rpx solid grey; border-radius: 10rpx;padding:5rpx;">热搜</span>
-    
+
+    <block wx:for="{{historylist}}" wx:for-index="index">
+          <span style="border:1rpx solid grey; border-radius: 10rpx;padding:5rpx;">{{item.searchContent}}</span>
+          <text style="width:10rpx;"></text>
+    </block>
+
   </view>
+
+
   
 
    <!--hot-->
@@ -43,11 +45,10 @@
   </view>
  <!--hot-->
   <view  class="search-hotlist">
-    <span style="border:1rpx solid grey; border-radius: 10rpx;padding:5rpx;">热搜</span>
-    <span style="border:1rpx solid grey; border-radius: 10rpx;padding:5rpx;">热搜</span>
-    <span style="border:1rpx solid grey; border-radius: 10rpx;padding:5rpx;">热搜</span>
-    <span style="border:1rpx solid grey; border-radius: 10rpx;padding:5rpx;">热搜</span>
-    <span style="border:1rpx solid grey; border-radius: 10rpx;padding:5rpx;">热搜</span>
+    <block wx:for="{{historylist}}" wx:for-index="index">
+          <span style="border:1rpx solid grey; border-radius: 10rpx;padding:5rpx;">{{item.searchContent}}</span>
+          <text style="width:10rpx;"></text>
+    </block>
     
   </view>
   
