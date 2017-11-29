@@ -45,6 +45,24 @@ Page({
         })
       }
     })
+
+    wx.request({
+      url: 'https://www.lazytechfinance.com/movie/api/param/video', //仅为示例，并非真实的接口地址
+      method: 'POST',
+      header: {
+        'content-type': 'application/json'
+      },
+      data: {
+        paramType: '003'
+      },
+      success: function (res) {
+       
+
+        that.setData({
+          movies: res.data.resultList
+        })
+      }
+    })
   
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function (userInfo){
