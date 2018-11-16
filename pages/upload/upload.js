@@ -19,30 +19,80 @@ Page({
 
   
   uploadImg: function () {
-    var that = this
-    wx.chooseVideo({
-      success: function (res) {
-        var tempFilePath = res.tempFilePath
-        
-        that.setData({
-          videodisplay: '',
-          adddisplay: 'none',
-          textdisplay: 'none',
-          marginTop: '0rpx',
-          src: tempFilePath,
-          tempFilePath: tempFilePath,
-          uploaddisabled:''
-        })
-        
-      },
-      fail: function (err) {
-        wx.showToast({
-          title: err,
-          icon: 'success',
-          duration: 2000
-        })
+    //收集用户信息
+    wx.login({
+      success: function (loginRes) {
+        if (loginRes.code) {
+          //发起网络请求
+          console.log(loginRes.code);
+         
+
+
+          wx.request({
+            url: 'https://qiuwangjue.mybission.com/weixin/getOpenId', //仅为示例，并非真实的接口地址
+            method: 'GET',
+            header: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            data: {
+              code: loginRes.code
+            },
+            success: function (res) {
+              console.log(res.data);
+              console.log(res.data.data.openid);
+             
+
+              wx.request({
+                url: 'https://qiuwangjue.mybission.com/weixin/wxPay', //仅为示例，并非真实的接口地址
+                method: 'POST',
+                header: {
+                  "Content-Type": "application/x-www-form-urlencoded"
+                },
+                data: {
+                  openid: res.data.data.openid
+                },
+                success: function (res) {
+                  console.log("======================" + res.data.data[0].appid);
+                  wx.requestPayment(
+                    {
+                      'timeStamp': res.data.data[0].timeStamp,
+                      'nonceStr': res.data.data[0].nonceStr,
+                      'package': res.data.data[0].package,
+                      'signType': 'MD5',
+                      'paySign': res.data.data[0].paySign,
+                      'success': function (res) {
+
+                        // console.log("======================" + res);
+
+                      },
+                      'fail': function (res) {
+                        console.log(res);
+                      },
+                      'complete': function (res) {
+                        // console.log("======================" + res);
+                      }
+                    })
+                }
+              })
+
+
+
+
+            }
+          })
+
+         
+
+
+
+
+        } else {
+          console.log('获取用户登录态失败！' + res.errMsg)
+        }
       }
-    })
+    });
+    
+
 
 
   },
@@ -64,47 +114,22 @@ Page({
 
   uploadVideo: function (event) {
     var that = this
-    that.setData({
-      uploaddisabled: 'none',
-      uploadtext: '上传中...',
-      loadingdisplay: ''
-    })
-    wx.uploadFile({
-      url: 'https://www.lazytechfinance.com/movie/api/video/upload', //上传视频接口
-      filePath: event.currentTarget.id,
-      name: 'file',
-      header: {
-        'content-type': 'multipart/form-data'
-      },
+    wx.request({
+      url: 'https://qiuwangjue.mybission.com/weixin/wxPay', //仅为示例，并非真实的接口地址
       method: 'POST',
+      header: {
+        'content-type': 'application/json'
+      },
+      data: {
+        openid: 'o7z8d0Y2WSOdadoMVc9WTbihbM9o'
+      },
       success: function (res) {
-        wx.showToast({
-          title: res.data,
-          icon: 'success',
-          duration: 2000
-        })
-        var data = JSON.parse(res.data);
-        if (data.code == '20000') {
-          that.setData({
-            uploadtext: '上传视频',
-            loadingdisplay: 'none',
-            uploaddisabled: '',
-          })
-          wx.showToast({
-            title: '上传成功',
-            icon: 'success',
-            duration: 2000
-          })
-          
-        } else {
-          wx.showToast({
-            title: data.msg,
-            icon: 'error',
-            duration: 2000
-          })
+        console.log("======================" + app.globalData.openid);
+        console.log(res.data.resultList);
 
-        }
-        //do something
+        that.setData({
+          movielist: res.data.resultList
+        })
       }
     })
 
